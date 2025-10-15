@@ -40,7 +40,7 @@ const Layout = () => {
 
   const fetchNotes = async () => {
     setIsLoading(true);
-    const notes = await noteRepository.find(currentUser!.id, 0);
+    const notes = await noteRepository.find(currentUser!.id, null);
     if (notes != null) {
       noteStore.set(notes);
     }
