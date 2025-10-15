@@ -40,7 +40,7 @@ const Layout = () => {
 
   const fetchNotes = async () => {
     setIsLoading(true);
-    const notes = await noteRepository.find(currentUser!.id);
+    const notes = await noteRepository.find(currentUser!.id, 0);
     if (notes != null) {
       noteStore.set(notes);
     }
@@ -59,8 +59,6 @@ const Layout = () => {
     navigate(`/notes/${noteId}`);
     setIsShowModal(false);
   };
-
-
 
   if (currentUser === undefined) {
     return <Navigate replace to="/signin" />;
